@@ -17,4 +17,7 @@
 
 	// 4.Call Router
 
+	$router = new Router();
+	$router->run();
+
 ?>
