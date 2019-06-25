@@ -14,12 +14,23 @@ class Router
 		$this->routes = include($routesPath);
 	}
 
+	// Метод для получения строку запроса
+
+	private function getUri()
+	{
+		if (!empty($_SERVER['REQUEST_URI'])) 
+		{
+			return trim($_SERVER['REQUEST_URI'],'/');
+		}
+	}
 
 	// Анализ запроса и передача управления
 	public function run()
 	{	
 		// Получить строку запроса
-		
+			
+			$uri = $this->getUri();
+				
 		// Провериь наличие такого запроса ва routes.php
 
 		// Если есть совпадение, определить какой контроллер и метод обрабатывает запрос.
@@ -28,7 +39,7 @@ class Router
 
 		//Создать объект и вызвать метод.
 
-		print_r($this->routes);
+		//print_r($this->routes);
 		
 	}
 }
