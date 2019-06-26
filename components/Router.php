@@ -11,7 +11,7 @@ class Router
 	{
 		// В свойстве routes сохраняем массив маршруты из файла /config/routes.php
 		$routesPath = ROOT.'/config/routes.php';
-		$this->routes = include($routesPath);
+		$this->routes = include_once($routesPath);
 	}
 
 	// Метод для получения строку запроса
@@ -31,7 +31,35 @@ class Router
 			
 			$uri = $this->getUri();
 				
-		// Провериь наличие такого запроса ва routes.php
+		// Проверим наличие такого запроса ва routes.php
+
+			foreach ($this->routes as $uriPattern => $path) {
+				
+				  
+
+				foreach ($this->routes as $uriPattern => $path) {
+					
+					// Сравниваем $uriPattern и $uri
+
+					if (preg_match("~$uriPattern~", $uri)) {
+						
+						// Определим какой контроллер и метод обрабатывает запрос
+
+						$segments = explode('/', $path);
+
+						// Получаем имя контроллера
+
+						$controllerName = array_shift($segments).'Controller';
+						$controllerName = ucfirst($controllerName);
+
+						echo $controllerName;
+					}
+					
+				}
+
+				exit();
+
+			}
 
 		// Если есть совпадение, определить какой контроллер и метод обрабатывает запрос.
 
