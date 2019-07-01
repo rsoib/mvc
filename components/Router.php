@@ -33,10 +33,6 @@ class Router
 				
 		// Проверим наличие такого запроса ва routes.php
 
-			foreach ($this->routes as $uriPattern => $path) {
-				
-				  
-
 				foreach ($this->routes as $uriPattern => $path) {
 					
 					// Сравниваем $uriPattern и $uri
@@ -52,14 +48,33 @@ class Router
 						$controllerName = array_shift($segments).'Controller';
 						$controllerName = ucfirst($controllerName);
 
-						echo $controllerName;
+						// Получаем имя метода 
+
+						$actionName = array_shift($segments);
+						$actionName = 'action'.ucfirst($actionName);
+
+						// Подключаем файлы класса - контроллера
+
+						$controllerFile = ROOT.'/controllers/'.$controllerName.'.php';
+
+						if (file_exists($controllerFile)) {
+							include_once($controllerFile);
+						}
+						
+						// Создаём объект и визываем метод.
+						$controllerObject = new $controllerName;	
+						$result = $controllerObject->$actionName();
+
+						if ($result !=null) {
+							break;
+						}
 					}
 					
 				}
 
 				exit();
 
-			}
+			
 
 		// Если есть совпадение, определить какой контроллер и метод обрабатывает запрос.
 
