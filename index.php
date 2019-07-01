@@ -2,16 +2,6 @@
 	
 	//FRONT CONTROLLER
 	
-
-	$string = date('d-m-Y');
-
-	$pattern = '/([0-9]{2})-([0-9]{2})-([0-9]{4})/';
-
-	$replacement = '$1 - уми $2 - и соли $3 ';
-
-	echo preg_replace($pattern, $replacement, $string);
-
-	
 	// 1. All settings
 	
 	ini_set('display_errors', 1);

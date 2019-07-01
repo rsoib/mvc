@@ -2,10 +2,8 @@
 	
 	return [
 
-		'news' => 'news/index', // NewsController/index  method
-		'product' => 'product/list', // ProductController/list  method	
-		'wqqe' => 'adsdfs/wesdfsd',
-
+		'news/([a-z]+)/([0-9]+)' => 'news/view/$1/$2', // NewsController/index  method
+		'news' => 'news/index'
 	]
 
 ?>
