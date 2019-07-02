@@ -39,19 +39,28 @@ class Router
 
 					if (preg_match("~$uriPattern~", $uri)) {
 						
-						// Определим какой контроллер и метод обрабатывает запрос
+						//Получаем внутренный путь из внешнего согласно правилу
 
-						$segments = explode('/', $path);
+						$internalRoute = preg_replace("~$uriPattern~", $path, $uri);
+
+						
+						// Определим какой контроллер и метод обрабатывает запрос а также определим парметри
+
+						$segments = explode('/', $internalRoute);
 
 						// Получаем имя контроллера
 
 						$controllerName = array_shift($segments).'Controller';
 						$controllerName = ucfirst($controllerName);
-
+						
 						// Получаем имя метода 
 
 						$actionName = array_shift($segments);
 						$actionName = 'action'.ucfirst($actionName);
+
+						$parameters = $segments;
+						echo "<pre>";
+						print_r($parameters);
 
 						// Подключаем файлы класса - контроллера
 
