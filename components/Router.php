@@ -59,8 +59,7 @@ class Router
 						$actionName = 'action'.ucfirst($actionName);
 
 						$parameters = $segments;
-						echo "<pre>";
-						print_r($parameters);
+
 
 						// Подключаем файлы класса - контроллера
 
@@ -70,9 +69,9 @@ class Router
 							include_once($controllerFile);
 						}
 						
-						// Создаём объект и визываем метод.
+						// Создаём объект и визываем метод и передаём параметры.
 						$controllerObject = new $controllerName;	
-						$result = $controllerObject->$actionName();
+						$result = call_user_func_array(array($controllerObject,$actionName), $parameters);
 
 						if ($result !=null) {
 							break;

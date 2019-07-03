@@ -10,9 +10,9 @@ class NewsController
 		return true;
 	}
 
-	public function actionView()
+	public function actionView($category, $id)
 	{
-		echo "Просмотр одной новости";
+		
 
 		return true;
 	}
