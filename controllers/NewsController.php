@@ -1,11 +1,17 @@
 <?php 
-	
+
+include_once(ROOT.'/models/News.php');
+
 class NewsController 
 {
 
 	public function actionIndex()
 	{
-		echo "Список новостей";
+		// Обращаемся к моделью News и его метод getNewsList
+		$newsList = array();
+		$newsList = News::getNewsList();
+
+		print_r($newsList);
 
 		return true;
 	}
@@ -13,7 +19,7 @@ class NewsController
 	public function actionView($category, $id)
 	{
 		
-
+		echo "string";
 		return true;
 	}
 

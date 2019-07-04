@@ -19,7 +19,9 @@ class News
 
 		public static function getNewsList()
 		{
-			// Запрос к БД
+			return [
+					'0' => 'test'
+				];
 
 		} 
 }
