@@ -8,22 +8,23 @@ class NewsController
 	public function actionIndex()
 	{
 		// Обращаемся к моделью News и его метод getNewsList
-		$newsList = array();
-		$newsList = News::getNewsList();
+		
+			$newsList = array();
+			$newsList = News::getNewsList();
 
-		print_r($newsList);
+			print_r($newsList);
 
-		return true;
+			return true;
+
 	}
 
 	public function actionView($category, $id)
 	{
+		echo $category;
+		echo "<br>".$id;
 		
-		echo "string";
-		return true;
+		return true;	
 	}
-
-
 
 
 } 

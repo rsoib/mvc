@@ -20,9 +20,10 @@ class News
 		public static function getNewsList()
 		{
 			return [
-					'0' => 'test'
-				];
 
+				'news' => 'Title',
+				'news3' => 'dsasdasd'
+			];
 		} 
 }
 
