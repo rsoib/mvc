@@ -1,5 +1,7 @@
 <?php 
 	
+class Db 
+{
 	public static function getConnetction()
 	{
 		$paramsPath = ROOT.'/config/db_params.php';
@@ -10,6 +12,7 @@
 
 		return $db;
 	}
+}
 
 
 
