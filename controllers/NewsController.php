@@ -12,17 +12,23 @@ class NewsController
 			$newsList = array();
 			$newsList = News::getNewsList();
 
+			
+			echo "<pre>";
 			print_r($newsList);
 
 			return true;
 
 	}
 
-	public function actionView($category, $id)
+	public function actionView($id)
 	{
-		echo $category;
-		echo "<br>".$id;
+
+		$newsItem = array();
+
+		$newsItem = News::getNewsItemById($id);
 		
+		echo "<pre>";
+		print_r($newsItem);
 		return true;	
 	}
 
