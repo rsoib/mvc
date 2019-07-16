@@ -11,6 +11,7 @@
 
 	define('ROOT', dirname(__FILE__));
 	include_once(ROOT.'/components/Router.php');
+	include_once(ROOT.'/components/Db.php');
 
 	// 3.Setting connection database
 

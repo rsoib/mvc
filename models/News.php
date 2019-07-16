@@ -1,6 +1,6 @@
 <?php 
 
-include_once(ROOT.'/config/Db.php');
+include_once(ROOT.'/components/Db.php');
 
 class News
 {
@@ -48,6 +48,8 @@ class News
 			while ($row = $result->fetch()) {
 				$newsList[$i]['id'] = $row['id'];
 				$newsList[$i]['title'] = $row['title'];
+				$newsList[$i]['content'] = $row['content'];
+				$newsList[$i]['author_name'] = $row['author_name'];
 				$newsList[$i]['date'] = $row['date'];
 				$newsList[$i]['short_content'] = $row['short_content'];
 
