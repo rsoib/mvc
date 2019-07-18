@@ -44,6 +44,7 @@ class Router
 						$internalRoute = preg_replace("~$uriPattern~", $path, $uri);
 
 						
+						
 						// Определим какой контроллер и метод обрабатывает запрос а также определим парметри
 
 						$segments = explode('/', $internalRoute);
