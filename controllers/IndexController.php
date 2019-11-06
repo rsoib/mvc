@@ -6,7 +6,7 @@ class IndexController
 	public function actionShow()
 	{
 
-		echo "string";
+		echo __METHOD__;
 		return true;
 	}
 
